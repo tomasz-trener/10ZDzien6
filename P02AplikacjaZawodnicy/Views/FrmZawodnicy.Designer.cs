@@ -86,6 +86,7 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnTrenerzy.TabIndex = 4;
             this.btnTrenerzy.Text = "Trenerzy";
             this.btnTrenerzy.UseVisualStyleBackColor = true;
+            this.btnTrenerzy.Click += new System.EventHandler(this.btnTrenerzy_Click);
             // 
             // groupBox1
             // 

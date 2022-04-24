@@ -40,6 +40,7 @@ namespace P02AplikacjaZawodnicy.Views
             this.dgvDane.Name = "dgvDane";
             this.dgvDane.Size = new System.Drawing.Size(552, 340);
             this.dgvDane.TabIndex = 0;
+            this.dgvDane.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDane_CellEndEdit);
             // 
             // FrmTrenerzy
             // 

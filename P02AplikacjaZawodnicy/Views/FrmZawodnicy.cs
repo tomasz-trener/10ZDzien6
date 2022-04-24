@@ -44,5 +44,11 @@ namespace P02AplikacjaZawodnicy.Views
             FrmSzczegoly fs = new FrmSzczegoly(this,zaznaczony);
             fs.Show();
         }
+
+        private void btnTrenerzy_Click(object sender, EventArgs e)
+        {
+            FrmTrenerzy ft = new FrmTrenerzy();
+            ft.Show();
+        }
     }
 }

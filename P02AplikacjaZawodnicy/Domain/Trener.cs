@@ -12,7 +12,7 @@ namespace P02AplikacjaZawodnicy.Domain
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
 
-        public DateTime DataUr { get; set; }
+        public DateTime? DataUr { get; set; }
 
     }
 }
