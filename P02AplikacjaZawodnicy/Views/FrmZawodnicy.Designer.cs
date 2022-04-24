@@ -33,6 +33,11 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnEdytuj = new System.Windows.Forms.Button();
             this.btnWczytaj = new System.Windows.Forms.Button();
+            this.btnTrenerzy = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbDane
@@ -45,7 +50,7 @@ namespace P02AplikacjaZawodnicy.Views
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(250, 76);
+            this.btnDodaj.Location = new System.Drawing.Point(6, 19);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(75, 23);
             this.btnDodaj.TabIndex = 1;
@@ -55,7 +60,7 @@ namespace P02AplikacjaZawodnicy.Views
             // 
             // btnEdytuj
             // 
-            this.btnEdytuj.Location = new System.Drawing.Point(250, 105);
+            this.btnEdytuj.Location = new System.Drawing.Point(6, 48);
             this.btnEdytuj.Name = "btnEdytuj";
             this.btnEdytuj.Size = new System.Drawing.Size(75, 23);
             this.btnEdytuj.TabIndex = 2;
@@ -65,7 +70,7 @@ namespace P02AplikacjaZawodnicy.Views
             // 
             // btnWczytaj
             // 
-            this.btnWczytaj.Location = new System.Drawing.Point(250, 33);
+            this.btnWczytaj.Location = new System.Drawing.Point(6, 19);
             this.btnWczytaj.Name = "btnWczytaj";
             this.btnWczytaj.Size = new System.Drawing.Size(75, 23);
             this.btnWczytaj.TabIndex = 3;
@@ -73,17 +78,49 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnWczytaj.UseVisualStyleBackColor = true;
             this.btnWczytaj.Click += new System.EventHandler(this.btnWczytaj_Click);
             // 
+            // btnTrenerzy
+            // 
+            this.btnTrenerzy.Location = new System.Drawing.Point(6, 48);
+            this.btnTrenerzy.Name = "btnTrenerzy";
+            this.btnTrenerzy.Size = new System.Drawing.Size(75, 23);
+            this.btnTrenerzy.TabIndex = 4;
+            this.btnTrenerzy.Text = "Trenerzy";
+            this.btnTrenerzy.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnDodaj);
+            this.groupBox1.Controls.Add(this.btnEdytuj);
+            this.groupBox1.Location = new System.Drawing.Point(250, 132);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(95, 100);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Zawodnik";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnWczytaj);
+            this.groupBox2.Controls.Add(this.btnTrenerzy);
+            this.groupBox2.Location = new System.Drawing.Point(256, 33);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(89, 79);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Program";
+            // 
             // FrmZawodnicy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 250);
-            this.Controls.Add(this.btnWczytaj);
-            this.Controls.Add(this.btnEdytuj);
-            this.Controls.Add(this.btnDodaj);
+            this.ClientSize = new System.Drawing.Size(352, 250);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbDane);
             this.Name = "FrmZawodnicy";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -94,6 +131,9 @@ namespace P02AplikacjaZawodnicy.Views
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnEdytuj;
         private System.Windows.Forms.Button btnWczytaj;
+        private System.Windows.Forms.Button btnTrenerzy;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
