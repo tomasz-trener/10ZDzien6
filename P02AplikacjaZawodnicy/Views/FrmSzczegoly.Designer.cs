@@ -43,6 +43,8 @@ namespace P02AplikacjaZawodnicy.Views
             this.label3 = new System.Windows.Forms.Label();
             this.btnZapisz = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
+            this.cbTrenerzy = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWzrost)).BeginInit();
             this.SuspendLayout();
@@ -156,7 +158,7 @@ namespace P02AplikacjaZawodnicy.Views
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(128, 285);
+            this.btnZapisz.Location = new System.Drawing.Point(128, 341);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(75, 23);
             this.btnZapisz.TabIndex = 32;
@@ -166,7 +168,7 @@ namespace P02AplikacjaZawodnicy.Views
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(29, 285);
+            this.btnUsun.Location = new System.Drawing.Point(29, 341);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(75, 23);
             this.btnUsun.TabIndex = 33;
@@ -175,11 +177,31 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnUsun.Visible = false;
             this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
+            // cbTrenerzy
+            // 
+            this.cbTrenerzy.FormattingEnabled = true;
+            this.cbTrenerzy.Location = new System.Drawing.Point(29, 305);
+            this.cbTrenerzy.Name = "cbTrenerzy";
+            this.cbTrenerzy.Size = new System.Drawing.Size(174, 21);
+            this.cbTrenerzy.TabIndex = 34;
+            this.cbTrenerzy.SelectedIndexChanged += new System.EventHandler(this.cbTrenerzy_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(27, 289);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Trener";
+            // 
             // FrmSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(223, 320);
+            this.ClientSize = new System.Drawing.Size(223, 374);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cbTrenerzy);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.dtpDataUrodzenia);
@@ -219,5 +241,7 @@ namespace P02AplikacjaZawodnicy.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.Button btnUsun;
+        private System.Windows.Forms.ComboBox cbTrenerzy;
+        private System.Windows.Forms.Label label7;
     }
 }

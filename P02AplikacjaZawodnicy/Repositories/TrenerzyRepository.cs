@@ -15,7 +15,7 @@ namespace P02AplikacjaZawodnicy.Repositories
         {
 
             PolaczenieZBaza pzb = new PolaczenieZBaza();
-            object[][] wynik= pzb.WyslijPolecenieSQL("select id_trenera, imie_t, nazwisko_t, data_ur_t from trenerzy");
+            object[][] wynik = pzb.WyslijPolecenieSQL("select id_trenera, imie_t, nazwisko_t, data_ur_t from trenerzy");
 
             Trener[] trenerzy = new Trener[wynik.Length];
 
@@ -23,19 +23,35 @@ namespace P02AplikacjaZawodnicy.Repositories
             {
                 Trener ityTrener = new Trener();
                 ityTrener.Id = (int)wynik[i][0];
-                  
+
                 ityTrener.Imie = (string)wynik[i][1];
                 ityTrener.Nazwisko = (string)wynik[i][2];
-                
-                if(wynik[i][3] != DBNull.Value)
+
+                if (wynik[i][3] != DBNull.Value)
                     ityTrener.DataUr = (DateTime)wynik[i][3];
-               
+
                 trenerzy[i] = ityTrener;
             }
 
             return trenerzy;
         }
 
+        public Trener PodajTrenera(int id)
+        {
+            PolaczenieZBaza pzb = new PolaczenieZBaza();
+            object[][] wynik = pzb.WyslijPolecenieSQL($"select id_trenera, imie_t, nazwisko_t, data_ur_t from trenerzy where id_trenera = {id}");
+
+            Trener trener = new Trener();
+            trener.Id = (int)wynik[0][0];
+
+            trener.Imie = (string)wynik[0][1];
+            trener.Nazwisko = (string)wynik[0][2];
+
+            if (wynik[0][3] != DBNull.Value)
+                trener.DataUr = (DateTime)wynik[0][3];
+
+            return trener;
+        }
 
         public void DodajTrenera(Trener t)
         {
@@ -44,7 +60,7 @@ namespace P02AplikacjaZawodnicy.Repositories
                          values
                          ({0}, '{1}', {2})";
 
-            string sql = string.Format(szablon, t.Imie, t.Nazwisko,t.DataUr==null? "null" : $"'{t.DataUr.Value.ToString("yyyyMMdd")}'");
+            string sql = string.Format(szablon, t.Imie, t.Nazwisko, t.DataUr == null ? "null" : $"'{t.DataUr.Value.ToString("yyyyMMdd")}'");
 
             PolaczenieZBaza pzb = new PolaczenieZBaza();
             pzb.WyslijPolecenieSQL(sql);
@@ -55,7 +71,7 @@ namespace P02AplikacjaZawodnicy.Repositories
             string szablon = @"update trenerzy set imie_t='{0}',nazwisko_t='{1}',data_ur_t={2}
                                 where id_trenera = {3}";
 
-            string sql = string.Format(szablon,t.Imie,t.Nazwisko, t.DataUr == null ? "null" : $"'{t.DataUr.Value.ToString("yyyyMMdd")}'", t.Id);
+            string sql = string.Format(szablon, t.Imie, t.Nazwisko, t.DataUr == null ? "null" : $"'{t.DataUr.Value.ToString("yyyyMMdd")}'", t.Id);
 
             PolaczenieZBaza pzb = new PolaczenieZBaza();
             pzb.WyslijPolecenieSQL(sql);

@@ -9,7 +9,7 @@ namespace P02AplikacjaZawodnicy.Domain
     public class Zawodnik
     {
         public int Id;
-        public int IdTrenera;
+        public int? IdTrenera;
         public string Imie { get; set; } // klasy są nullable to znaczy , ze one juz odrazu moga pzryjmowac wartosci null
         public string Nazwisko;
         public string Kraj;

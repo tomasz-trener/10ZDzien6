@@ -54,7 +54,7 @@ namespace P02AplikacjaZawodnicy.Repositories
                          values
                          ({0}, '{1}', '{2}', '{3}', '{4}', {5}, {6})";
 
-            string sql = string.Format(szablon, z.IdTrenera, z.Imie, z.Nazwisko, z.Kraj,
+            string sql = string.Format(szablon, z.IdTrenera==0?"null":z.IdTrenera.ToString(), z.Imie, z.Nazwisko, z.Kraj,
                 z.DataUr.ToString("yyyyMMdd"), z.Wzrost, z.Waga);
 
             PolaczenieZBaza pzb = new PolaczenieZBaza();
@@ -63,10 +63,11 @@ namespace P02AplikacjaZawodnicy.Repositories
 
         public void Edytuj(Zawodnik z)
         {
-            string szablon = @"update zawodnicy set imie='{0}',nazwisko='{1}', kraj='{2}', data_ur='{3}',wzrost={4},waga={5}
-                                where id_zawodnika = {6}";
+            string szablon = @"update zawodnicy set imie='{0}',nazwisko='{1}', kraj='{2}', data_ur='{3}',wzrost={4},waga={5},
+                                id_trenera = {6}
+                                where id_zawodnika = {7}";
 
-            string sql = string.Format(szablon,z.Imie,z.Nazwisko,z.Kraj,z.DataUr.ToString("yyyyMMdd"),z.Wzrost,z.Waga,z.Id);
+            string sql = string.Format(szablon,z.Imie,z.Nazwisko,z.Kraj,z.DataUr.ToString("yyyyMMdd"),z.Wzrost,z.Waga, z.IdTrenera == 0 ? "null" : z.IdTrenera.ToString(), z.Id);
 
             PolaczenieZBaza pzb = new PolaczenieZBaza();
             pzb.WyslijPolecenieSQL(sql);

@@ -30,11 +30,22 @@ namespace P02AplikacjaZawodnicy.Views
                return edytowany == null ? TrybOkienka.Dodawanie : TrybOkienka.Edycja;
             }
         }
-
+        bool zakonczoneBindowanie = false;  
         public FrmSzczegoly(FrmZawodnicy frmZawodnicy)
         {
             this.frmZawodnicy = frmZawodnicy;
             InitializeComponent();
+
+            TrenerzyRepository tr = new TrenerzyRepository();
+            List<Trener> trenerzy = tr.WczytajTrenerow().ToList();
+            trenerzy.Insert(0, new Trener());
+            trenerzy.Insert(0, new Trener() { Imie = "(nowy)" });
+
+            cbTrenerzy.DataSource = trenerzy.ToArray();
+            cbTrenerzy.DisplayMember = "ImieNazwisko";
+            zakonczoneBindowanie = true;
+
+
         }
 
         public FrmSzczegoly(FrmZawodnicy frmZawodnicy, Zawodnik z) : this(frmZawodnicy)
@@ -49,6 +60,27 @@ namespace P02AplikacjaZawodnicy.Views
             if(z.Wzrost != null)
                 numWzrost.Value = (int)z.Wzrost;
             btnUsun.Visible = true;
+
+            // sprawdzmy kto trenuje tego zawodnika 
+            if(z.IdTrenera != null)
+            {
+                TrenerzyRepository tr = new TrenerzyRepository();
+                Trener t= tr.PodajTrenera((int)z.IdTrenera);
+
+                //cbTrenerzy.SelectedItem = t;
+                // rozwiazanie na ten moment 
+                foreach (Trener ityTren in (Trener[])cbTrenerzy.DataSource)
+                    if (ityTren.Id == t.Id)
+                    {
+                        cbTrenerzy.SelectedItem = ityTren;
+                        break;
+                    }
+                // inne rozwiaznaie z zastosowaniem LINQ 
+                //cbTrenerzy.SelectedItem = ((Trener[])cbTrenerzy.DataSource).FirstOrDefault(x => x.Id == t.Id);
+
+
+
+            }
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)
@@ -67,6 +99,7 @@ namespace P02AplikacjaZawodnicy.Views
             z.DataUr = dtpDataUrodzenia.Value;
             z.Waga = Convert.ToInt32(numWaga.Value);
             z.Wzrost = Convert.ToInt32(numWzrost.Value);
+            z.IdTrenera = ((Trener)cbTrenerzy.SelectedItem).Id;
 
             ZawodnicyRepository zr = new ZawodnicyRepository();
 
@@ -97,6 +130,15 @@ namespace P02AplikacjaZawodnicy.Views
             }
 
             
+        }
+
+        private void cbTrenerzy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (zakonczoneBindowanie && cbTrenerzy.SelectedIndex==0)
+            {
+                FrmTrenerzy ft = new FrmTrenerzy();
+                ft.Show();
+            }
         }
     }
 }

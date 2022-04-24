@@ -14,5 +14,7 @@ namespace P02AplikacjaZawodnicy.Domain
 
         public DateTime? DataUr { get; set; }
 
+        public string ImieNazwisko {  get { return Imie + " " + Nazwisko; } }
+
     }
 }
