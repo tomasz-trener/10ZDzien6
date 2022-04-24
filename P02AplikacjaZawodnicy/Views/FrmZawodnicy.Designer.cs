@@ -51,6 +51,7 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnDodaj.TabIndex = 1;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // btnEdytuj
             // 
@@ -60,6 +61,7 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnEdytuj.TabIndex = 2;
             this.btnEdytuj.Text = "Edytuj";
             this.btnEdytuj.UseVisualStyleBackColor = true;
+            this.btnEdytuj.Click += new System.EventHandler(this.btnEdytuj_Click);
             // 
             // btnWczytaj
             // 

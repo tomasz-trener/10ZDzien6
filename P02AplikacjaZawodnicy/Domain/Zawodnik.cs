@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P02AplikacjaZawodnicy.Domain
 {
-    class Zawodnik
+    public class Zawodnik
     {
         public int Id;
         public int IdTrenera;
@@ -26,5 +26,7 @@ namespace P02AplikacjaZawodnicy.Domain
                 return Imie + " " + Nazwisko + " " + Kraj;
             }
         }
+
+        public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
     }
 }
