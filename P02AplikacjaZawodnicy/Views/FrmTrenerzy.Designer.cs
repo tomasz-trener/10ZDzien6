@@ -41,6 +41,8 @@ namespace P02AplikacjaZawodnicy.Views
             this.dgvDane.Size = new System.Drawing.Size(552, 340);
             this.dgvDane.TabIndex = 0;
             this.dgvDane.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDane_CellEndEdit);
+            this.dgvDane.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDane_RowsAdded);
+            this.dgvDane.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDane_UserDeletingRow);
             // 
             // FrmTrenerzy
             // 
@@ -50,6 +52,7 @@ namespace P02AplikacjaZawodnicy.Views
             this.Controls.Add(this.dgvDane);
             this.Name = "FrmTrenerzy";
             this.Text = "FrmTrenerzy";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTrenerzy_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDane)).EndInit();
             this.ResumeLayout(false);
 

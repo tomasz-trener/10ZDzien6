@@ -53,17 +53,19 @@ namespace P02AplikacjaZawodnicy.Repositories
             return trener;
         }
 
-        public void DodajTrenera(Trener t)
+        public int DodajTrenera(Trener t)
         {
             string szablon = @"insert into trenerzy 
                          (imie_t, nazwisko_t, data_ur_t)
+                         OUTPUT Inserted.id_trenera
                          values
-                         ({0}, '{1}', {2})";
+                         ('{0}', '{1}', {2})";
 
             string sql = string.Format(szablon, t.Imie, t.Nazwisko, t.DataUr == null ? "null" : $"'{t.DataUr.Value.ToString("yyyyMMdd")}'");
 
             PolaczenieZBaza pzb = new PolaczenieZBaza();
-            pzb.WyslijPolecenieSQL(sql);
+            object[][] wynik=  pzb.WyslijPolecenieSQL(sql);
+            return (int)wynik[0][0];
         }
 
         public void Edytuj(Trener t)

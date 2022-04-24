@@ -35,7 +35,11 @@ namespace P02AplikacjaZawodnicy.Views
         {
             this.frmZawodnicy = frmZawodnicy;
             InitializeComponent();
+            Odswiez();
+        }
 
+        public void Odswiez(Trener zaznaczony = null)
+        {
             TrenerzyRepository tr = new TrenerzyRepository();
             List<Trener> trenerzy = tr.WczytajTrenerow().ToList();
             trenerzy.Insert(0, new Trener());
@@ -45,7 +49,11 @@ namespace P02AplikacjaZawodnicy.Views
             cbTrenerzy.DisplayMember = "ImieNazwisko";
             zakonczoneBindowanie = true;
 
-
+            // po załądowaniu danych 
+            // wybieramy z trenerow tego trenera o takim samym id jak ten zaznaczony
+            // i to on ma byc wyswietlany 
+            if(zaznaczony != null)
+                cbTrenerzy.SelectedItem = trenerzy.FirstOrDefault(x => x.Id == zaznaczony.Id);
         }
 
         public FrmSzczegoly(FrmZawodnicy frmZawodnicy, Zawodnik z) : this(frmZawodnicy)
@@ -136,8 +144,9 @@ namespace P02AplikacjaZawodnicy.Views
         {
             if (zakonczoneBindowanie && cbTrenerzy.SelectedIndex==0)
             {
-                FrmTrenerzy ft = new FrmTrenerzy();
+                FrmTrenerzy ft = new FrmTrenerzy(this);
                 ft.Show();
+                zakonczoneBindowanie = false;
             }
         }
     }

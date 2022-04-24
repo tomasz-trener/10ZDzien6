@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P02AplikacjaZawodnicy.Domain
 {
-    class Trener
+    public class Trener
     {
         public int Id { get; set; }
         public string Imie { get; set; }

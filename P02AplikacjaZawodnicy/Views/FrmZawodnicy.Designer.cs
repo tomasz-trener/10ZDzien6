@@ -36,6 +36,7 @@ namespace P02AplikacjaZawodnicy.Views
             this.btnTrenerzy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbNieaktywni = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +48,8 @@ namespace P02AplikacjaZawodnicy.Views
             this.lbDane.Name = "lbDane";
             this.lbDane.Size = new System.Drawing.Size(208, 199);
             this.lbDane.TabIndex = 0;
+            this.lbDane.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbDane_MouseDown);
+            this.lbDane.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbDane_MouseMove);
             // 
             // btnDodaj
             // 
@@ -110,11 +113,23 @@ namespace P02AplikacjaZawodnicy.Views
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Program";
             // 
+            // lbNieaktywni
+            // 
+            this.lbNieaktywni.AllowDrop = true;
+            this.lbNieaktywni.FormattingEnabled = true;
+            this.lbNieaktywni.Location = new System.Drawing.Point(351, 39);
+            this.lbNieaktywni.Name = "lbNieaktywni";
+            this.lbNieaktywni.Size = new System.Drawing.Size(208, 199);
+            this.lbNieaktywni.TabIndex = 7;
+            this.lbNieaktywni.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbNieaktywni_DragDrop);
+            this.lbNieaktywni.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbNieaktywni_DragEnter);
+            // 
             // FrmZawodnicy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 250);
+            this.ClientSize = new System.Drawing.Size(597, 250);
+            this.Controls.Add(this.lbNieaktywni);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbDane);
@@ -135,6 +150,7 @@ namespace P02AplikacjaZawodnicy.Views
         private System.Windows.Forms.Button btnTrenerzy;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListBox lbNieaktywni;
     }
 }
 

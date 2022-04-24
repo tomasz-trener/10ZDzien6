@@ -50,6 +50,7 @@
     <Compile Include="Domain\Zawodnik.cs" />
     <Compile Include="Repositories\TrenerzyRepository.cs" />
     <Compile Include="Repositories\ZawodnicyRepository.cs" />
+    <Compile Include="Tools\DragObject.cs" />
     <Compile Include="Tools\PolaczenieZBaza.cs" />
     <Compile Include="Views\FrmTrenerzy.cs">
       <SubType>Form</SubType>
